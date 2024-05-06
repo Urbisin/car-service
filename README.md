@@ -1,2 +1,2 @@
 # car-service
-Microservice for a car shop
+Microservice API for a little car shop :D
