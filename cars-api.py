@@ -14,6 +14,13 @@ def get_cars():
     cars = list(cars_collection.find({}, {'_id': 0 }))
     return jsonify(cars)
 
+@app.route('/cars/<car_id>', methods=['GET'])
+def get_car_id(car_id):
+    car = cars_collection.find_one({'_id': car_id})
+    if car is None:
+        return jsonify({"message": 'Car not found'}), 404
+    return jsonify(car)
+
 @app.route('/cars', methods=['POST'])
 def add_car():
     cars = request.json
